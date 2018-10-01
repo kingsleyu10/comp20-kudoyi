@@ -1,0 +1,45 @@
+@media only screen {
+	.software {
+		background: url("software.png");
+	}
+}
+@media screen and (min-width: 1201px) {
+	.software {
+		background: url("software.png") 0px 0px no-repeat;
+		width: 431px;
+		height: 576px;
+	}
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+	.software {
+		background: url("software.png") -433px 0px no-repeat;
+		width: 440px;
+		height: 571px;
+	}
+}
+
+
+@media screen and (min-width: 801px) and (max-width: 1000px) {
+	.software {
+		background: url("software.png") -875px 0px no-repeat;
+		width: 329px;
+		height: 590px;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+	.software {
+		background: url("software.png") 0px -580px no-repeat;
+		width: 725px;
+		height: 650px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.software {
+		background: url("software.png") -725px -590px no-repeat;
+		width: 480px;
+		height: 620px;
+	}
+}
