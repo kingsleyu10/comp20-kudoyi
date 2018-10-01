@@ -3,6 +3,8 @@
 		background: url("software.png");
 	}
 }
+
+/* Displays first image */
 @media screen and (min-width: 1201px) {
 	.software {
 		background: url("software.png") 0px 0px no-repeat;
@@ -11,6 +13,7 @@
 	}
 }
 
+/* Displays middle image on top */
 @media screen and (min-width: 1001px) and (max-width: 1200px) {
 	.software {
 		background: url("software.png") -433px 0px no-repeat;
@@ -19,7 +22,7 @@
 	}
 }
 
-
+/* Displays last image to the top right of the page */
 @media screen and (min-width: 801px) and (max-width: 1000px) {
 	.software {
 		background: url("software.png") -875px 0px no-repeat;
@@ -28,6 +31,7 @@
 	}
 }
 
+/* Displays bottom left image */
 @media screen and (min-width: 601px) and (max-width: 800px) {
 	.software {
 		background: url("software.png") 0px -580px no-repeat;
@@ -36,6 +40,7 @@
 	}
 }
 
+/* Displays bottom right image */
 @media screen and (max-width: 600px) {
 	.software {
 		background: url("software.png") -725px -590px no-repeat;
