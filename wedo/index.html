@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>We Do</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+	</head>
+
+	<body>
+
+		<h1 id="title">We Do</h1>
+
+		<video src="https://www.cs.tufts.edu/comp/20/wedo.mp4" id="wedo" controls></video>
+		<div id="lyrics"></div>
+
+		<script>
+			var song = document.getElementById("wedo");
+			var lyrics = document.getElementById("lyrics");
+			
+			song.addEventListener("timeupdate", function() {
+				if (song.currentTime > 4 && song.currentTime < 6) {
+					lyrics.innerHTML = "<h1>Who controls the British crown?</h1>";
+				} else if (song.currentTime > 6 && song.currentTime < 8) {
+					lyrics.innerHTML = "<h1>Who keeps the metric system down?</h1>";
+				} else if (song.currentTime > 8 && song.currentTime < 12) {
+					lyrics.innerHTML = "<h1>We do, we do!</h1>";
+				} else if (song.currentTime > 12 && song.currentTime < 14.2) {
+					lyrics.innerHTML = "<h1>Who keeps Atlantis off the maps?</h1>";
+				} else if (song.currentTime > 14.3 && song.currentTime < 16.3) {
+					lyrics.innerHTML = "<h1>Who keeps the Martians under wraps?</h1>";
+				} else if (song.currentTime > 16.5 && song.currentTime < 21) {
+					lyrics.innerHTML = "<h1>We do! we do!</h1>";
+				} else if (song.currentTime > 21 && song.currentTime < 25) {
+					lyrics.innerHTML = "<h1>Who holds back the electric car?</h1>";
+				} else if (song.currentTime > 25 && song.currentTime < 29) {
+					lyrics.innerHTML = "<h1>Who makes Steve Guttenberg a star?</h1>";
+				} else if (song.currentTime > 29 && song.currentTime < 33) {
+					lyrics.innerHTML = "<h1>We do, we do!</h1>";
+				} else if (song.currentTime > 33 && song.currentTime < 35.3) {
+					lyrics.innerHTML = "<h1>Who robs cavefish of their sight?</h1>";
+				} else if (song.currentTime > 35.3 && song.currentTime < 38) {
+					lyrics.innerHTML = "<h1>Who rigs every Oscar night?</h1>";
+				} else if (song.currentTime > 38 && song.currentTime < 40) {
+					lyrics.innerHTML = "<h1>We do!</h1>";
+				} else if (song.currentTime > 40 && song.currentTime < 44) {
+					lyrics.innerHTML = "<h1>We do!</h1>";
+				} else {
+					lyrics.innerHTML = "";
+				}
+
+			}, false);
+		</script>
+	</body>
+</html>

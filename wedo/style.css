@@ -1,0 +1,14 @@
+#title { 
+	color: white;
+	text-align: center;
+	font: verdana;
+	font-weight: 900; 
+	font-variant: small-caps;
+	font-size: 48px;
+}
+body {
+	text-align: center;
+	font: Verdana;
+	background: black;
+	color: white;
+}
