@@ -7,6 +7,7 @@ function initMap() {
 	};
 	var map;
 	var loc = [];
+	var branch = [];
 	
 	map = new google.maps.Map(document.getElementById('map'), options);
 
@@ -15,6 +16,7 @@ function initMap() {
 		position: {lat: 42.395428, lng: -71.142483},
 		icon: 'icons8-railway-station-30.png',
 		title: "Alewife"
+		//stop_id: place-sstat
 	});
 	loc.push(alewife.position);
 	alewife.setMap(map);
@@ -29,6 +31,7 @@ function initMap() {
 		position: {lat: 42.39674, lng: -71.121815},
 		icon: 'icons8-railway-station-30.png',
 		title: "Davis"
+		//stop_id: place-davis
 	});
 	loc.push(davis.position);
 	davis.setMap(map);
@@ -42,7 +45,8 @@ function initMap() {
 	var porterSquare = new google.maps.Marker({
 		position: {lat: 42.3884, lng: -71.11914899999999},
 		icon: 'icons8-railway-station-30.png',
-		title: "Porter Square"
+		title: "Porter Square",
+		//stop_id: place-portr
 	});
 	loc.push(porterSquare.position);
 	porterSquare.setMap(map);
@@ -152,8 +156,6 @@ function initMap() {
 			southStation.title); infowindow.open(map, southStation);
 	});
 
-	//google.maps.geometry.spherical.computeDistanceBetween (latLng(southStation), latLng(porterSquare));
-
 	// Broadway
 	var broadway = new google.maps.Marker({
 		position: {lat: 42.342642, lng: -71.056967},
@@ -189,6 +191,7 @@ function initMap() {
 		title: "JFK_UMASS"
 	});
 	loc.push(JFK_UMASS.position);
+	branch.push(JFK_UMASS.position);
 	JFK_UMASS.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
@@ -202,7 +205,7 @@ function initMap() {
 		icon: 'icons8-railway-station-30.png',
 		title: "North Quincy"
 	});
-	loc.push(northQuincy.position);
+	branch.push(northQuincy.position);
 	northQuincy.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
@@ -216,7 +219,7 @@ function initMap() {
 		icon: 'icons8-railway-station-30.png',
 		title: "Wollaston"
 	});
-	loc.push(wollaston.position);
+	branch.push(wollaston.position);
 	wollaston.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
@@ -230,7 +233,7 @@ function initMap() {
 		icon: 'icons8-railway-station-30.png',
 		title: "Quincy Center"
 	});
-	loc.push(quincyCenter.position);
+	branch.push(quincyCenter.position);
 	quincyCenter.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
@@ -244,12 +247,21 @@ function initMap() {
 		icon: 'icons8-railway-station-30.png',
 		title: "Quincy Adams"
 	});
-	loc.push(quincyAdams.position);
+	branch.push(quincyAdams.position);
 	quincyAdams.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
 	google.maps.event.addListener(quincyAdams, 'click', function() {
-		infowindow.setContent(quincyAdams.title); infowindow.open(map, quincyAdams);
+		var request = new XMLHttpRequest();
+		request.open("GET", "https://chicken-of-the-sea.herokuapp.com/redline/schedule.json?stop_id=place-qamnl", true);
+		request.onreadystatechange = function () {
+			if (request.readyState == 4 && request.status == 200) {
+				var obj = JSON.parse(request.responseText);
+				console.log(obj);
+				infowindow.setContent(obj.data[0].attributes); infowindow.open(map, quincyAdams);
+			}
+		}
+		request.send();
 	});
 
 	// Braintree
@@ -258,7 +270,7 @@ function initMap() {
 		icon: 'icons8-railway-station-30.png',
 		title: "Braintree"
 	});
-	loc.push(braintree.position);
+	branch.push(braintree.position);
 	braintree.setMap(map);
 
 	var infowindow = new google.maps.InfoWindow();
@@ -296,7 +308,7 @@ function initMap() {
 
 	// Shawmut
 	var shawmut = new google.maps.Marker({
-		position: {lat: 42.39312583, lng: -71.06573796000001},
+		position: {lat: 42.29312583, lng: -71.06573796000001},
 		icon: 'icons8-railway-station-30.png',
 		title: "Shawmut"
 	});
@@ -327,9 +339,17 @@ function initMap() {
 	    geodesic: true,
 	    strokeColor: '#FF0000',
 	    strokeOpacity: 1.0,
-	    strokeWeight: 2
+	    strokeWeight: 3
+	});
+	var line2 = new google.maps.Polyline({
+	    path: branch,
+	    geodesic: true,
+	    strokeColor: '#FF0000',
+	    strokeOpacity: 1.0,
+	    strokeWeight: 3
 	});
 	line.setMap(map);
+	line2.setMap(map);
 
 	if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -337,26 +357,35 @@ function initMap() {
 			myLng = position.coords.longitude;
 			me = new google.maps.LatLng(myLat, myLng);
 
-		// Update map and go there...
-		map.panTo(me);
-		
-		// Create a marker
-		var my_marker = new google.maps.Marker({
-			position: me,
-			title: "HERE!"
-		});
-		my_marker.setMap(map);
+			// Update map and go there...
+			map.panTo(me);
 			
+			// Create a marker
+			var my_marker = new google.maps.Marker({
+				position: me,
+				title: "HERE!"
+			});
+			my_marker.setMap(map);
+				
 			// Open info window on click of marker
 			google.maps.event.addListener(my_marker, 'click', function() {
 				infowindow.setContent(my_marker.title);
 				infowindow.open(map, my_marker);
 			});
+			/*var distance = google.maps.geometry.spherical.computeDistanceBetween(me, davis);
+			console.log('found');
+			var line3 = new google.maps.Polyline({
+			    path: distance,
+			    geodesic: true,
+			    strokeColor: '#FF0000',
+			    strokeOpacity: 1.0,
+			    strokeWeight: 3
+			});
+			line3.setMap(map);*/
 		});
 	}
 	else {
 		alert("Geolocation is not supported by your web browser.  What a shame!");
 	}
-	
 }
 
