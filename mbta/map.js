@@ -1082,8 +1082,7 @@ function initMap() {
 			
 			// Create a marker
 			var my_marker = new google.maps.Marker({
-				position: me,
-				icon: 'icons8-star-50.png'
+				position: me
 			});
 			my_marker.setMap(map);
 			
