@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Captain's Log</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // used to keep data on page even after refresh
+            elem = document.getElementById("log");
+            output = "";
+            for (var i = 0; i < localStorage.length; i++) { 
+                output = "<p>" + localStorage.getItem(localStorage.key(i)) + "</p>\n" + output;
+            }
+            elem.innerHTML = output;
+
+            $("#msg").keypress(function (event) {
+                if (event.which == 13) {
+                    elem = document.getElementById("msg");
+                    text = elem.value;
+                    time = new Date() + '';
+                    // sets info in local storage
+                    localStorage.setItem(time, time + " - " + text);
+
+                    elem = document.getElementById("log");
+                    output = "";
+
+                    // loops through local storage, gets info and prints
+                    for (var i = 0; i < localStorage.length; i++) { 
+                        output = "<p>" + localStorage.getItem(localStorage.key(i)) + "</p>\n" + output;
+                    }
+                    elem.innerHTML = output;
+
+                    // clears input text box after a message is entered
+                    $("#msg").val("");
+                }
+            
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>Captain's Log</h1>
+    <h3>New entry: <input type="text" id="msg" name="msg" size="30" /></h3>
+    <div id="log"></div>
+</body>
+</html>
