@@ -20,31 +20,32 @@
 		Here are a list of all the issues found with Jack's web application:<br>
 		<ol>
 			Request Headers
+			Cross Site Searching
 			
 		</ol>
 	</p>
 	<h3>Issue #1 - Request Header</h3>
 	<p>
 		Location: Found within definition of use for express<br>
-		Serverity: Bad<br>
+		Severity: Bad<br>
 		Description: This is a bad potential vulnerability because the asterisk ('*') is a wildcard where any website can have access to his web application. This could lead to the endless possibilities where hackers can breach his applciation.<br>
 		<img src="Issue_1.png"/>
 		<br>
 		Recommended Solution: Specify which websites you want to have access to your application.
 	</p>
-	<h3>Issue #2 - </h3>
+	<h3>Issue #2 - XSS</h3>
 	<p>
-		Location:<br>
-		Serverity:<br>
-		Description:<br>
+		Location: Found in Javascript file<br>
+		Severity: Very Bad<br>
+		Description: Jack never accounted for the fact that a client (for instance, a ~dear I say~ HACKER) using his web application can easily breach it and change the content being shown. As you can see, I obliterated his web application completely.<br>
 		<!--Insert image of issue as proof here -->
 		<br>
-		Recommended Solution:
+		Recommended Solution: A way to avoid this is to account for potential privacy and security vulnerabilities like XSS and taking steps on how to minimize the chances of this happening.
 	</p>
 	<h3>Issue #3 - </h3>
 	<p>
 		Location:<br>
-		Serverity:<br>
+		Severity:<br>
 		Description:<br>
 		<!--Insert image of issue as proof here -->
 		<br>

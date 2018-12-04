@@ -1,1 +1,12 @@
 Semester Reflection
+
+1. What is this purpose of this Git repository? (duh!)
+	The purpose of this Git repo is to make sure we have access to our code after the semester ends. It was used throughout the semester as a way for us to submit our code for different assignments and labs. To evade plagarism, the repo was made private so that only myself and Ming can view it.
+2. What was your favorite lab or assignment and why?
+	My favorite assignment was definitely the MBTA one. That assignment taught me so much and really made me fall in love with the class even more (though the 'wedo' lab comes as a close second). I loved the MBTA assignment because we got to build something very practical and potentially marketable. Got to learn what an API was and how to use them. I also got to learn a ton about javascript and the really cool things it could do.
+3. How much do you think you have grown from day 1 of this course to now?
+	I have definitely grown a lot since day 1 in this course. I've always been told by friends that took this class before me and recommended it that it was a class I should take before I graduated. I have been able to tell myself that it is ok to Google things. I guess growing up in the public school system has allowed to think that it is a taboo to not Google things because it could lead to plagarism and especially now that I'm in college, I've been really careful about those things but this class has shown that it is what most people do in industry.
+4. What was the most important thing that you learned in this course? Cite two examples as evidence.
+	I think that the most important thing that I learned in this course is learning how to use other APIs and incorporating them into code. So many developers in industry today use these things (like Jango for people at companies like HubSpot and Google Maps for companies like Uber or Lyft) and it is so important know how to access them and learn how to use them. A close second most important thing is using Github throughout the semester. It is such an important and employable skill that I was super happy to have learned. Now, I use it to document a lot of my Computer Science work.
+5. Now that you have finished the course, what topic would you like to delve deeper into?
+	I would like to learn more about the web. I feel like there is so much more to learn about it. Please bring back Web Engineering before I graduate Ming!!
