@@ -17,66 +17,53 @@
 	</p>
 	<h2>Abstract of Findings</h2>
 	<p>
-		Here are a list of all the issues found with Jack's web application:<br>
+		Here is a list of all the issues found with Jack's web application:<br>
 		<ol>
-			Request Headers
-			Cross Site Searching
-			
+			Any client can access his web application<br>
+			Easily Hackable<br>
+			Data Protection
 		</ol>
 	</p>
-	<h3>Issue #1 - Request Header</h3>
+	<h3>Issue #1 - Response Header</h3>
 	<p>
 		Location: Found within definition of use for express<br>
-		Severity: Bad<br>
+		Severity: Medium. There could be some clients that you may not want to have access to your application.<br>
 		Description: This is a bad potential vulnerability because the asterisk ('*') is a wildcard where any website can have access to his web application. This could lead to the endless possibilities where hackers can breach his applciation.<br>
-		<img src="Issue_1.png"/>
-		<br>
+		<br><img src="Issue_1.png" class="center"/><br>
 		Recommended Solution: Specify which websites you want to have access to your application.
 	</p>
-	<h3>Issue #2 - XSS</h3>
+	<h3>Issue #2 - Cross-Site Scripting (XSS) </h3>
 	<p>
-		Location: Found in Javascript file<br>
-		Severity: Very Bad<br>
-		Description: Jack never accounted for the fact that a client (for instance, a ~dear I say~ HACKER) using his web application can easily breach it and change the content being shown. As you can see, I obliterated his web application completely.<br>
-		<!--Insert image of issue as proof here -->
-		<br>
+		Location: Found in HTML<br>
+		Severity: High. This is one of the most common vulnerabilities out there and can be very dangerous because it can compromise the privacy of your web application.<br>
+		Description: Jack never accounted for the fact that a client (for instance, a ~dear I say~ HACKER) using his web application can easily breach it and change the content being shown. As you can see, I was able to insert a sticker in his web application which affects both the security and privacy of it.<br>
+		<br><img src="Issue_2.png" class="center"/><br>
 		Recommended Solution: A way to avoid this is to account for potential privacy and security vulnerabilities like XSS and taking steps on how to minimize the chances of this happening.
 	</p>
-	<h3>Issue #3 - </h3>
+	<h3>Issue #3 - Query Strings</h3>
 	<p>
-		Location:<br>
-		Severity:<br>
-		Description:<br>
-		<!--Insert image of issue as proof here -->
-		<br>
-		Recommended Solution:
+		Location: URL for data storage<br>
+		Severity: High. This is a major privacy issue.<br>
+		Description: I was able to access all uploaded records of everyone that played the game. This should never happen and can lead to Jack losing tons of money if this was a monetary web application<br>
+		<br><img src="Issue_3.png" class="center"/><br>
+		Recommended Solution: Add a replace method for the URL so that no one can have access to things that they shouldn't.<br>
+		<br><img src="Solution_3.png" class="center"/>
 	</p>
 	<h2>Conclusion</h2>
 	<p>
 		In the future, consider doing the following to minimize number of potential vulnerabilities:
-		<ul></ul>
+		<ul>
+			Account for XSS (It is impossible to account for all scenarios but it is important to think through them and account for those that you can)<br>
+			Try to make your web application as secure as possible (just because it is HTTPS does not guarantee it to be secure)<br>
+			Really consider who and what kinds of clients you want to have access to your application
+		</ul>
 	</p>
 	<h2>References</h2>
 	<p>
-		<ul></ul>
+		<ul>
+			Burp Suite<br>
+			Curl<br>
+		</ul>
 	</p>
 </body>
 </html>
-
-
-
-
-
-<!--Introduction - Provide a description of the product and what you were hired to do
-Methodology - Describe your methodology pen testing the application, including the tools that you used
-Abstract of Findings - Provide an overview of all the security and privacy issues you identified. This section should be written for non-technical managers who do not have technical expertise and do not have time to read the entire document. Write this section using lay language.
-Issues Found - For each issue that you find, document:
-Issue (e.g., database injection, really bad programming practice)
-Location or page where issue was found
-Severity of issue (e.g., low, medium , or high). Justify your answer.
-Description of issue. How did you find it? A screenshot of problem is excellent.
-Proof of vulnerability. Show pictures or it didn't happen.
-Resolution. Make recommendation(s) on how issue can be resolved. Show code if possible.
-Conclusion - You can also list future considerations and recommendations with costs.
-References - A list of references and links that you used for your work.
--->
