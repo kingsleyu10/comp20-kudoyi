@@ -9,11 +9,11 @@
 	<h1>Security Assessment of Jack Hale's 2048 Changes<br>By: Kingsley Udoyi</h1>
 	<h2>Introduction</h2>
 	<p>
-		Jack hired me to find any potential security and privacy vulnerabilities within his web application. His web application was deployed on Heroku to display the scores and names of individuals that play his 2048 game along with when they achieved that score. He stores all data on a server called Mongo DB which is an add on for Heruko used to communicate with the web server each time a round of the game is finished. 
+		Jack hired me to find any potential security and privacy vulnerabilities within his web application. His web application was deployed on Heroku to display the scores and names of individuals that played his 2048 game along with when they achieved that score. He stored all data on a data collection based server called Mongo DB which is an add on for Heruko used to communicate with the web server each time a round of the game is finished. 
 	</p>
 	<h2>Methodology</h2>
 	<p>
-		First, I took a look at the HTML file of his web application and tried to see if there are any ways to attempt to break the site or find vulnerabilities just by trial and error. I did this for about 30-45 minutes before I exhausted all possibilities I could think of from the top of my head.  Then, I took a look at Jack's source code to confirm my suspicions. Afterwards, I used a free online tool called Web Inspector to do a deep search on the web application and find any potential vulnerabilities. From there, I took a look at all vulnerabilities found and researched the ones that I wasn't 100% familiar with and ways to handle those vulnerabilities. Finally, I implemented hacks to the site and just decided to break his web application.
+		First, I took a look at the HTML file of his web application and tried to see if there were any ways to attempt to break the site or find vulnerabilities just by trial and error. I did this for about 30-45 minutes before I exhausted all possibilities I could think of from the top of my head.  Then, I just implemented hacks to the site and just decided to break his web application using the 'Curl' and 'Burp Suite' tools.
 	</p>
 	<h2>Abstract of Findings</h2>
 	<p>
@@ -26,11 +26,11 @@
 	</p>
 	<h3>Issue #1 - Response Header</h3>
 	<p>
-		Location: Found within definition of use for express<br>
+		Location: Found within definition of use for express in Javascript file<br>
 		Severity: Medium. There could be some clients that you may not want to have access to your application.<br>
-		Description: This is a bad potential vulnerability because the asterisk ('*') is a wildcard where any website can have access to his web application. This could lead to the endless possibilities where hackers can breach his applciation.<br>
+		Description: This is a bad potential vulnerability because the asterisk ('*') in Jack's code is a wildcard where any website can have access to his web application. This could lead to the endless possibilities where hackers can breach his applciation.<br>
 		<br><img src="Issue_1.png" class="center"/><br>
-		Recommended Solution: Specify which websites you want to have access to your application.
+		Recommended Solution: Specify which websites you want to have access or not to your application. Can be a bit tedious but is definitely worth it.
 	</p>
 	<h3>Issue #2 - Cross-Site Scripting (XSS) </h3>
 	<p>
@@ -42,7 +42,7 @@
 	</p>
 	<h3>Issue #3 - Query Strings</h3>
 	<p>
-		Location: URL for data storage<br>
+		Location: (Manipulated) URL for data storage<br>
 		Severity: High. This is a major privacy issue.<br>
 		Description: I was able to access all uploaded records of everyone that played the game. This should never happen and can lead to Jack losing tons of money if this was a monetary web application<br>
 		<br><img src="Issue_3.png" class="center"/><br>
